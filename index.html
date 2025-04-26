@@ -160,6 +160,10 @@
         let input_name = form.elements.name
         let card_name = document.querySelector(".card-name")
 
+        //имя банка
+        let input_bank = form.elements.bank
+        let bank_name = document.querySelector(".bank-name")
+
         // номер карты
         input_number.addEventListener("input", () => {
             card_number.textContent = input_number.value
@@ -169,6 +173,12 @@
         //владелиц карты
         input_name.addEventListener("input", () => {
             card_name.textContent = input_name.value
+        })
+
+        //имя банка
+        input_bank.addEventListener("input", () => {
+            bank_name.textContent = input_bank.value
+            // console.log(input_bank.value)
         })
 
     </script>
