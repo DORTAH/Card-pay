@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cards</title>
+    <style>
+            body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+            margin: 0;
+        }
+        
+        .credit-card {
+            width: 350px;
+            height: 220px;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 20px;
+            box-sizing: border-box;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .credit-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .bank-name {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .card-chip {
+            width: 40px;
+            height: 30px;
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .card-chip::before {
+            content: '';
+            width: 30px;
+            height: 20px;
+            border: 1px solid rgba(0, 0, 0, 0.3);
+            border-radius: 3px;
+        }
+        
+        .card-number {
+            font-size: 22px;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            word-spacing: 5px;
+        }
+        
+        .card-details {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .card-holder, .card-expiry {
+            font-size: 14px;
+        }
+        
+        .card-label {
+            font-size: 10px;
+            opacity: 0.8;
+            margin-bottom: 5px;
+        }
+        
+        .card-expiry {
+            text-align: right;
+        }
+        
+        .mir-logo {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+            background: linear-gradient(135deg, #ff0000, #ff6600);
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-right: 30px;
+        }
+
+    </style>
+</head>
+<body>
+    <form action="" name="form">
+        <input type="text" name="bank">
+        <input type="text" name="number">
+        <input type="text" name="name">
+        <input type="text" name="date">
+        <select name="system_pay">
+            <option value="visa">Visa</option>
+            <option value="master_card">Master Card</option>
+            <option value="mr">Mir</option>
+        </select>
+    </form>
+
+
+    <div class="credit-card">
+        <div class="card-header">
+            <div class="bank-name">СБЕРБАНК</div>
+            <div class="card-chip"></div>
+        </div>
+        <div class="card-number" name="card_number" >2200 1234 5678 9012</div>
+        <div class="card-details">
+            <div class="card-holder">
+                <div class="card-label">ДЕРЖАТЕЛЬ КАРТЫ</div>
+                <div class="card-name">ИВАН ИВАНОВ</div>
+            </div>
+            <div class="card-expiry">
+                <div class="card-label">СРОК ДЕЙСТВИЯ</div>
+                <div>12/25</div>
+            </div>
+        </div>
+        <div class="mir-logo">МИР</div>
+    </div>
+
+    <script>
+        // Номер карты 
+        let form = document.forms.form;
+        let input_number = form.elements.number;
+        let card_number = document.querySelector(".card-number");
+
+        //владелиц карты
+        let input_name = form.elements.name
+        let card_name = document.querySelector(".card-name")
+
+        // номер карты
+        input_number.addEventListener("input", () => {
+            card_number.textContent = input_number.value
+            console.log(input_number.value)
+        })
+
+        //владелиц карты
+        input_name.addEventListener("input", () => {
+            card_name.textContent = input_name.value
+        })
+
+    </script>
+</body>
+</html>
