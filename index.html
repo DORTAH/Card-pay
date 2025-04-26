@@ -119,11 +119,11 @@
 </head>
 <body>
     <form action="" name="form">
-        <input type="text" name="bank">
-        <input type="text" name="number">
-        <input type="text" name="name">
-        <input type="text" name="date">
-        <select name="system_pay">
+        <input type="text" name="bank" placeholder="Имя банка">
+        <input type="text" name="number" placeholder="Номер карты">
+        <input type="text" name="name" placeholder="Имя">
+        <input type="date" name="date" value="2025-12-11" >
+        <select name="card_label">
             <option value="visa">Visa</option>
             <option value="master_card">Master Card</option>
             <option value="mr">Mir</option>
@@ -147,7 +147,7 @@
                 <div>12/25</div>
             </div>
         </div>
-        <div class="mir-logo">МИР</div>
+        <div class="mir-logo">mir</div>
     </div>
 
     <script>
@@ -163,6 +163,10 @@
         //имя банка
         let input_bank = form.elements.bank
         let bank_name = document.querySelector(".bank-name")
+
+        //  лейбел карты
+        let input_card_label = form.elements.card_label
+        let crad_label = document.querySelector(".card-label")
 
         // номер карты
         input_number.addEventListener("input", () => {
@@ -180,6 +184,10 @@
             bank_name.textContent = input_bank.value
             // console.log(input_bank.value)
         })
+
+        // iput_bank.addEventListener("input", () => {
+
+        // })
 
     </script>
 </body>
