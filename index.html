@@ -96,7 +96,7 @@
             text-align: right;
         }
         
-        .mir-logo {
+        /* .mir-logo {
             position: absolute;
             right: 20px;
             bottom: 20px;
@@ -106,6 +106,30 @@
             background: linear-gradient(135deg, #ff0000, #ff6600);
             padding: 5px 10px;
             border-radius: 5px;
+        } */
+
+        .image-mir {
+            position: absolute;
+            width: 100px;
+            height: 80px;
+            right: 10px;
+            bottom: -6px;
+
+        }
+        .image-mastercard {
+            position: absolute;
+            width: 90px;
+            height: 70px;
+            right: 10px;
+            bottom: -6px;
+
+        }
+        .image-visa {
+            position: absolute;
+            width: 90px;
+            height: 80px;
+            right: 10px;
+            bottom: -6px;
         }
         
         form {
@@ -126,7 +150,7 @@
         <select name="card_label">
             <option value="visa">Visa</option>
             <option value="master_card">Master Card</option>
-            <option value="mr">МИР</option>
+            <option value="mir">МИР</option>
         </select>
     </form>
 
@@ -147,7 +171,9 @@
                 <div>12/25</div>
             </div>
         </div>
-        <div class="mir-logo">mir</div>
+        <div class="mir-logo"><img src="./src/pictirs/mir.png" alt="mir" class="image-mir"></div>
+        <!-- <div class="mastercard-logo"><img src="./src/pictirs/mastercard.png" alt="mastercard" class="image-mastercard"></div>
+        <div class="visa-logo"><img src="./src/pictirs/visa.png" alt="visa" class="image-visa"></div> -->
     </div>
 
     <script>
@@ -167,6 +193,10 @@
         //  лейбел карты
         let input_card_label = form.elements.card_label
         let crad_label = document.querySelector(".card-label")
+        let card_label_element_mir= document.querySelector('.image-mir').style
+        let card_label_element_mastercard= document.querySelector('.image-mastercard').style
+        let card_label_element_visa= document.querySelector('.image-visa').style
+
 
         // номер карты
         input_number.addEventListener("input", () => {
@@ -185,9 +215,16 @@
             // console.log(input_bank.value)
         })
 
-        // iput_bank.addEventListener("input", () => {
+        input_card_label.addEventListener("change", () => {
+            if (input_card_label.value = mir){
+                card_label_element_mastercard.display = 'none';
+                card_label_element_visa.display = 'none';
+            } else{}
+            // console.log(input_card_label.value)
+            // card_label_element_mir.display = 'none'
+            // console.log(card_label_element_mir)
 
-        // })
+        })
 
     </script>
 </body>
